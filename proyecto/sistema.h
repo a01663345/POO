@@ -19,7 +19,7 @@ private:
 
 public:
 
-    void menu() {
+void menu() {
         int opcion;
 
         do {
@@ -28,12 +28,13 @@ public:
             cout << "=================\n";
             cout << "1) Dar de alta vuelo\n";
             cout << "2) Mostrar vuelos\n";
-            cout << "3) Dar de alta usuario\n";
-            cout << "4) Mostrar usuarios\n";
-            cout << "5) Realizar reservacion\n";
-            cout << "6) Imprime reservaciones\n";
-            cout << "7) Cancelar reservacion\n";
-            cout << "8) Salir\n";
+            cout << "3) Buscar vuelo por fecha\n"; // <--- NUEVA OPCION
+            cout << "4) Dar de alta usuario\n";
+            cout << "5) Mostrar usuarios\n";
+            cout << "6) Realizar reservacion\n";
+            cout << "7) Imprime reservaciones\n";
+            cout << "8) Cancelar reservacion\n";
+            cout << "9) Salir\n";
             cout << "\n";
             cout << "Elije una opcion: ";
             cin >> opcion;
@@ -45,22 +46,25 @@ public:
                 case 2:
                      mostrarVuelos(); 
                 break;
-                case 3: 
-                    agregarUsuario(); 
+                case 3:
+                     buscarVueloPorFecha(); // <--- LLAMADA A LA NUEVA FUNCION
                 break;
                 case 4: 
-                    mostrarUsuarios(); 
+                    agregarUsuario(); 
                 break;
                 case 5: 
-                    realizarReservacion(); 
+                    mostrarUsuarios(); 
                 break;
                 case 6: 
-                    mostrarReservaciones(); 
+                    realizarReservacion(); 
                 break;
                 case 7: 
-                    cancelarReservacion(); 
+                    mostrarReservaciones(); 
                 break;
                 case 8: 
+                    cancelarReservacion(); 
+                break;
+                case 9: 
                     cout << "Saliendo...\n" << endl;
                 break;
                 default: 
@@ -68,7 +72,7 @@ public:
                 break;
             }
 
-        } while (opcion != 8);
+        } while (opcion != 9); // <--- OJO: AHORA EL LIMITE ES 9
     }
 
     // ------------------------------
