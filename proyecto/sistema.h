@@ -187,6 +187,36 @@ public:
 
         cout << "Reservacion creada. Precio final: $" << precio << "\n";
     }
+// ------------------------------
+    // BUSCAR VUELO POR FECHA
+    // ------------------------------
+    void buscarVueloPorFecha() {
+        if (numVuelos == 0) {
+            cout << "No hay vuelos registrados para buscar.\n";
+            return;
+        }
+
+        string f;
+        cout << "Ingrese la fecha a buscar (mismo formato usado al registro): ";
+        cin >> f;
+
+        bool encontrado = false;
+        cout << "\n--- Resultados de busqueda para fecha: " << f << " ---\n";
+        
+        for (int i = 0; i < numVuelos; i++) {
+            if (vuelos[i].getFecha() == f) {
+                cout << "Vuelo " << vuelos[i].getNumeroVuelo()
+                     << " (" << vuelos[i].getAerolinea() << ")"
+                     << " - Hora/Duracion: " << vuelos[i].getDuracionMin() << " min"
+                     << " - Precio: $" << vuelos[i].getPrecio() << "\n";
+                encontrado = true;
+            }
+        }
+
+        if (!encontrado) {
+            cout << "No se encontraron vuelos en esa fecha.\n";
+        }
+    }
 
     // ------------------------------
     void mostrarReservaciones() {
